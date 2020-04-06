@@ -47,4 +47,14 @@ public class WelcomeController {
         return greeting.getContent();
     }
 
+    @PostMapping("/greetingValidation")
+    public String createGreetingValidation(@RequestBody User user) {
+
+        if (user.getName().isEmpty()) {
+            return  "Enter name";
+        }
+        
+        return "Hi welcome to springboot, " + user.getName();
+    }
+
 }
